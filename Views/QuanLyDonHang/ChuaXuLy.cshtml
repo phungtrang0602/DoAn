@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Do_An.Models.DonHang>
+
+@{
+    ViewBag.Title = "ChuaXuLy";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h1> Các đơn hàng chưa thanh toán hoặc chưa được giao </h1>
+
+<p>
+    @Html.ActionLink("Quay Lại ", "Index")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaDonHang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DaThanhToan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TinhTrangGiaoHang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayDat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayGiao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaKH)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaDonHang)
+        </td>
+        <td>
+            @{
+                if (item.DaThanhToan == null || item.DaThanhToan == 0)
+                {
+                    <p style="color: red"> Chưa Thanh Toán</p>;
+                }
+                else
+
+                {
+                    <p style="color: green"> Đã Thanh Toán</p>
+                }
+            }
+        </td>
+        <td>
+            @{
+                if (item.TinhTrangGiaoHang == null)
+                {
+                    <p style="color:crimson">Chưa giao</p>;
+                }
+                else
+                if (item.TinhTrangGiaoHang == 0)
+                {
+                    <p style="color:blue"> Đang Giao </p>
+                }
+                else
+                if (item.TinhTrangGiaoHang == -1)
+                {
+                    <p style="color: red"> Từ Chối </p>
+                }
+                else
+                {
+                    <p style="color: green"> Giao Thành Công </p>
+                }
+
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayDat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayGiao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaKH)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { @id = item.MaDonHang }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Details", "DoHangDemo", new { @maDonHang = item.MaDonHang }, new { @class = "btn btn-info" })
+            @Html.ActionLink("Delete", "Delete", new { @id = item.MaDonHang }, new { @class = "btn btn-danger", onclick = "return confirm('Bạn có chắc muốn xóa đơn hàng này?');" })
+        </td>
+    </tr>
+}
+
+</table>

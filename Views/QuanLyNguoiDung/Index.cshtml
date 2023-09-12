@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Do_An.Models.KhachHang>
+
+@{
+    ViewBag.Title = "QuanLyNguoiDung";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+
+<h1 style="margin: 20px; text-align: center; font-weight: bold; font-size: 50px; color: darkcyan;">Quản lý người dùng</h1>
+<p>
+    <h1> @Html.ActionLink("Tạo Tài Khoản Mới", "Create")</h1>
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Họ Tên
+        </th>
+        <th>
+            Tài Khoản
+        </th>
+        <th>
+           Email
+        </th>
+        <th>
+           Địa Chỉ
+        </th>
+        <th>
+          Điện Thoại 
+        </th>
+        <th>
+            Giới Tính
+        </th>
+        <th>
+            Ngày Sinh
+        </th>
+        <th>
+           Quyền
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoTen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaiKhoan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DienThoai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GioiTinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgaySinh)
+            </td>
+            <td>
+                @if (item.quyen == 1)
+                {
+                    <span>Admin</span>
+                }
+                else if (item.quyen == 0)
+                {
+                    <span>User</span>
+                }
+            </td>
+            <td>
+                <button onclick="location.href='@Url.Action("Edit", new { id = item.MaKH })'" class="btn btn-primary">Edit</button>
+                @Html.ActionLink("Delete", "Xoa", new { @MaKH = item.MaKH }, new { @class = "btn btn-danger", onclick = "return confirm('Bạn có chắc muốn xóa người này?');" })
+
+            </td>
+        </tr>
+    }
+
+
+</table>

@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Do_An.Models.DonHang>
+
+@{
+    ViewBag.Title = "DonHang";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+<h1 style="margin: 20px; text-align: center; font-weight: bold; font-size: 50px; color: darkcyan;">Đơn Hàng Của Bạn </h1>
+
+<div style="margin:50px;">
+    <table class="table">
+        <tr>
+            <th>
+                Mã Đơn Hàng
+            </th>
+            <th>
+                Tình Trạng Thanh Toán
+            </th>
+            <th>
+                Trình Trạng Giao Hàng
+            </th>
+            <th>
+                Ngày Đặt
+            </th>
+            <th>
+                Ngày Giao
+            </th>
+
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaDonHang)
+                </td>
+                <td>
+                    @{
+                        if (item.DaThanhToan == null || item.DaThanhToan == 0)
+                        {
+                            <p style="color: red"> Chưa Thanh Toán</p>;
+                        }
+                        else
+
+                        {
+                            <p style="color: green"> Đã Thanh Toán</p>
+                        }
+                    }
+                </td>
+                <td>
+                    @{
+                        if (item.TinhTrangGiaoHang == null)
+                        {
+                            <p style="color:crimson">Đơn Hàng Chưa Được Xử Lý</p>;
+                        }
+                        else
+                        if (item.TinhTrangGiaoHang == 0)
+                        {
+                            <p style="color:blue"> Đang Giao... </p>
+                        }
+                        else
+                        if (item.TinhTrangGiaoHang == -1)
+                        {
+                            <p style="color: red"> Đơn Hàng Đã Hủy </p>
+                        }
+                        else
+                        {
+                            <p style="color: green"> Giao Thành Công </p>
+                        }
+
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayDat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayGiao)
+                </td>
+
+                <td>
+                    @{
+                        if (item.TinhTrangGiaoHang == null)
+                        {
+                            @Html.ActionLink("Hủy Đơn", "Delete", new { @id = item.MaDonHang }, new { @class = "btn btn-danger", onclick = "return confirm('Bạn có chắc muốn xóa đơn hàng này?');" })
+                        }
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

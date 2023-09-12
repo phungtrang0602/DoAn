@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Do_An.Models.ChiTietDonHang>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+
+
+
+}
+
+<h2>Chi tiết đơn hàng</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Mã Đơn Hàng
+        </th>
+        <th>
+            Mã Sách
+        </th>
+        <th>
+            Số Lượng
+        </th>
+        <th>
+            Đơn Giá
+        </th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaDonHang)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaSach)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DonGia)
+            </td>
+
+            <td>
+                @Html.ActionLink("Thong tin sách", "sachchitiethoadon", new { @maSach = item.MaSach }, new { @class = "btn btn-info" })
+            </td>
+
+
+        </tr>
+    }
+
+    @{
+        int i = 0;
+    }
+
+    @foreach (var item in Model)
+    {
+
+        if (i == 0)
+        {
+            <tr>   @Html.ActionLink("Thong tin khách hàng", "VanChuyen", new { @maDonHang = item.MaDonHang }, new { @class = "btn btn-info" })</tr>
+            <tr>
+
+                <td>
+                    @Html.Action("XuLyPartial", "QuanLyDonHang", new { @maDonHang = item.MaDonHang })
+
+                    @{ i = i + 1; }
+
+                </td>
+
+            </tr>
+        }
+
+    }
+
+
+
+</table>

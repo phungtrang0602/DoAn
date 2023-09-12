@@ -1,0 +1,42 @@
+﻿@model Do_An.Models.DonHang
+
+@{
+    if (Model.TinhTrangGiaoHang == null)
+    {
+        @Html.ActionLink("Xác Nhận Giao Hàng", "GiaoHang", new { @maDonHang = Model.MaDonHang }, new { @class = "btn btn-danger" })
+
+        <p style="margin:30px;">
+
+            @Html.ActionLink("Hủy Đơn", "HuyDon", new { @maDonHang = Model.MaDonHang }, new { @class = "btn btn-danger" })
+        </p>
+    }
+    else if (Model.TinhTrangGiaoHang == 0)
+    {
+        <h2 style="color: cadetblue; margin: 20px;"> Hàng Đang Giao...  </h2>
+
+        <p style="margin:30px;">
+
+            @Html.ActionLink("Hủy Đơn", "HuyDon", new { @maDonHang = Model.MaDonHang }, new { @class = "btn btn-danger" })
+        </p>
+
+        <p style="margin:30px;">
+
+            @Html.ActionLink("Giao Thành Công  ", "ThanhCong", new { @maDonHang = Model.MaDonHang }, new { @class = "btn btn-primary" })
+        </p>
+    }
+
+    else
+    {
+        <h2 style="color: forestgreen;"> Đơn Hàng Đã Được Hoàn Thành </h2>
+    }
+
+
+
+
+
+}
+
+
+
+
+

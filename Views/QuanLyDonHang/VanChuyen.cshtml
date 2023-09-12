@@ -1,0 +1,86 @@
+﻿@model Do_An.Models.KhachHang
+
+@{
+    ViewBag.Title = "VanChuyen";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h2></h2>
+
+<div>
+    <h4>Thông Tin Khách hàng liên lạc giao hàng </h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Mã Khách Hàng
+            @*@Html.DisplayNameFor(model => model.MaKH)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaKH)
+        </dd>
+
+        <dt>
+          Họ Tên
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoTen)
+        </dd>
+
+        <dt>
+           Tài Khoản
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaiKhoan)
+        </dd>
+
+        <dt>
+          Email
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+           Địa Chỉ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+           Điện Thoại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DienThoai)
+        </dd>
+
+        <dt>
+          Giới Tính
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioiTinh)
+        </dd>
+
+        <dt>
+            Ngày Sinh
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgaySinh)
+        </dd>
+
+        
+
+    </dl>
+</div>
+<p>
+    
+    @Html.ActionLink("Back to List", "Index")
+</p>
