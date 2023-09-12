@@ -112,7 +112,9 @@ namespace Do_An.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
+
             List<GioHang> listGioHang = LayGioHang();
+
             return View(listGioHang);
         }
         
