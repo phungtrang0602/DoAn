@@ -10,20 +10,21 @@
 <h1 style="margin:10px; text-align:center; font-weight: bold; font-size:50px; color:darkcyan;">Quản lý  sản phẩm</h1>
 
 <p>
-    <h1>  @Html.ActionLink("Thêm sách", "Create")</h1>
-    <h1>  @Html.ActionLink("Các sách đã hết", "themsoluong")</h1>
-   
 
-        <div id="txtTimKiem">
-            @using (Html.BeginForm("KetQuaTimKiemAdmin", "TimKiem", FormMethod.Post))
-            {
-                @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Nhập vào sách cần tìm kiếm" })
-               
-                 <button class="btn-danger">Tìm Kiếm</button>
-              
+    <h1>  @Html.ActionLink("Thêm sách", "Create", new {}, new { @class = "btn btn-primary" })</h1>
+    <h1>  @Html.ActionLink("Các sách đã hết", "themsoluong", new { }, new { @class = "btn btn-primary" })</h1>
+  
 
-            }
-        </div>
+    <div id="txtTimKiem">
+        @using (Html.BeginForm("KetQuaTimKiemAdmin", "TimKiem", FormMethod.Post))
+        {
+            @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Nhập vào sách cần tìm kiếm" })
+
+            <button class="btn-danger">Tìm Kiếm</button>
+
+
+        }
+    </div>
 </p>
 <table class="table">
     <tr>

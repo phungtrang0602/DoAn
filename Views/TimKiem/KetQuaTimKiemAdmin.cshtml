@@ -95,8 +95,8 @@
             </td>
             <td>
                 <div class="btn-group" role="group">
-                    @Html.ActionLink("Edit", "ChinhSua", new { @MaSach = item.MaSach }, new { @class = "btn btn-primary" })
-                    @Html.ActionLink("Delete", "Xoa", new { @MaSach = item.MaSach }, new { @class = "btn btn-danger", onclick = "return confirm('Bạn có muốn xóa?');" })
+                    @Html.ActionLink("Edit", "ChinhSua", "QuanLySanPham", new { @MaSach = item.MaSach }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Delete", "Xoa", "QuanLySanPham",new { @MaSach = item.MaSach }, new { @class = "btn btn-danger", onclick = "return confirm('Bạn có muốn xóa?');" })
 
                 </div>
             </td>
