@@ -88,7 +88,6 @@ namespace Do_An.Controllers
             
         }
 
-   
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
@@ -189,6 +188,15 @@ namespace Do_An.Controllers
 
             donhang.TinhTrangGiaoHang = -1;
             db.DonHangs.AddOrUpdate(donhang);
+            List<ChiTietDonHang> chitiet = db.ChiTietDonHangs.Where(x => x.MaDonHang == maDonHang).ToList();
+            foreach(var item in chitiet)
+            {
+                Sach sach = db.Saches.FirstOrDefault(x => x.MaSach == item.MaSach);
+                sach.SoLuongTon = sach.SoLuongTon + item.SoLuong;
+                db.Saches.AddOrUpdate(sach);
+                db.SaveChanges();
+            }
+
             db.SaveChanges();
 
             return RedirectToAction("ChuaXuLy");

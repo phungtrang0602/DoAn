@@ -52,9 +52,6 @@ namespace Do_An.Controllers
             donhang.TinhTrangGiaoHang = -1;
             db.DonHangs.AddOrUpdate(donhang);
 
-            
-           
-            List<ChiTietDonHang> listChitiet;
 
             do
             {

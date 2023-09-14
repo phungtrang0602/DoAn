@@ -209,7 +209,7 @@ namespace Do_An.Controllers
             }
 
             db.SaveChanges();
-
+            Session["GioHang"] = null;
             //return RedirectToAction("Index","Home");
 
             return View();
