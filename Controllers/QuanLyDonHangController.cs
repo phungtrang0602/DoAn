@@ -38,7 +38,6 @@ namespace Do_An.Controllers
             List<ChiTietDonHang> chitiet = db.ChiTietDonHangs.Where(x => x.MaDonHang == maDonHang).ToList();   
             return View(chitiet);
         }
-
         public ActionResult Edit(int id)
         {
             DonHang donhang = db.DonHangs.Find(id);
@@ -48,8 +47,6 @@ namespace Do_An.Controllers
             }
             return View(donhang);
         }
-
-    
         [HttpPost]
         public ActionResult Edit(DonHang donhang)
         {
@@ -62,8 +59,6 @@ namespace Do_An.Controllers
 
             return View(donhang);
         }
-
-  
         public ActionResult Delete(int id)
         {
             DonHang donhang = db.DonHangs.Find(id);
@@ -138,8 +133,6 @@ namespace Do_An.Controllers
                 return RedirectToAction("Index");
             }
         }
-
-
         public ActionResult VanChuyen(int maDonHang = 0)
         {
             DonHang donHang = db.DonHangs.FirstOrDefault(x => x.MaDonHang == maDonHang);
@@ -225,6 +218,7 @@ namespace Do_An.Controllers
             foreach(var item in chitiet)
             {
                 GioHang gioHang = new GioHang(item.MaSach);
+                gioHang.iSoLuong = (int)item.SoLuong;
                 listGioHang.Add(gioHang);
             }
             return View(listGioHang); 

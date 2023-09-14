@@ -144,6 +144,7 @@
     <Compile Include="Controllers\QuanLyNguoiDungController.cs" />
     <Compile Include="Controllers\QuanLySanPhamController.cs" />
     <Compile Include="Controllers\SachController.cs" />
+    <Compile Include="Controllers\ThongKeController.cs" />
     <Compile Include="Controllers\ThongTinController.cs" />
     <Compile Include="Controllers\TimKiemController.cs" />
     <Compile Include="Global.asax.cs">
@@ -519,6 +520,8 @@
     <Content Include="Views\ThongTin\DonHang.cshtml" />
     <Content Include="Views\QuanLyDonHang\DoHangDemo.cshtml" />
     <Content Include="Views\TimKiem\KetQuaTimKiemAdmin.cshtml" />
+    <Content Include="Views\ThongTin\DoHangDemo.cshtml" />
+    <Content Include="Views\ThongKe\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

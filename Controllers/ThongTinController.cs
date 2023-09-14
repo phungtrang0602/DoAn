@@ -67,5 +67,22 @@ namespace Do_An.Controllers
 
             return RedirectToAction("DonHang");
         }
+
+        public ActionResult DoHangDemo(int maDonHang)
+        {
+            ViewBag.MaDonHang = maDonHang;
+
+            DonHang donhang = db.DonHangs.FirstOrDefault(x => x.MaDonHang == maDonHang);
+            List<ChiTietDonHang> chitiet = db.ChiTietDonHangs.Where(x => x.MaDonHang == maDonHang).ToList();
+            List<GioHang> listGioHang = new List<GioHang>();
+            foreach (var item in chitiet)
+            {
+                GioHang gioHang = new GioHang(item.MaSach);
+                gioHang.iSoLuong = (int)item.SoLuong;
+                listGioHang.Add(gioHang);
+            }
+            return View(listGioHang);
+
+        }
     }
 }

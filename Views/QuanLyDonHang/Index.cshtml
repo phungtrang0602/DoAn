@@ -8,12 +8,10 @@
 <h1 style="margin: 20px; text-align: center; font-weight: bold; font-size: 50px; color: darkcyan;">Quản lý đơn hàng</h1>
 
 <div>
-    <ul>
-        <li>@Html.ActionLink("Đơn Hàng Chưa Xử Lý", "ChuaXuLy", new { }, new { @class = "btn btn-primary" })</li>
-        <br />
-        <li>@Html.ActionLink("Đơn Hàng Đã Xử Lý", "DaXuLy", new { }, new { @class = "btn btn-primary" })</li>
-    </ul>
 
+    @Html.ActionLink("Đơn Hàng Chưa Xử Lý", "ChuaXuLy", new { }, new { @class = "btn btn-primary" })
+    <p> </p>
+    @Html.ActionLink("Đơn Hàng Đã Xử Lý", "DaXuLy", new { }, new { @class = "btn btn-primary" })
 
 </div>
 <table class="table">

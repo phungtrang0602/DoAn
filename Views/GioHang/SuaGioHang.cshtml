@@ -33,7 +33,7 @@
             @using (Html.BeginForm("CapNhapGioHang", "GioHang", new { @iMaSP = item.iMaSach }))
             {
                 @*<td>@Html.TextBox("txtSoLuong", @item.iSoLuong)</td>*@
-                <td>@Html.TextBox("txtSoLuong", @item.iSoLuong,new {min=1, Type = "Number" })</td>
+                <td>@Html.TextBox("txtSoLuong", @item.iSoLuong, new {min=1, Type = "Number" })</td>
                 <td>@string.Format("{0:0,0}", item.ThanhTien) VND</td>
                 <td class="action-column">
                     <button type="submit" class="update-button" title="Cập nhật">

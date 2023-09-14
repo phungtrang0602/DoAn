@@ -79,6 +79,7 @@
                 </td>
 
                 <td>
+                    @Html.ActionLink(" Xem ", "DoHangDemo", "ThongTin", new { @maDonHang = item.MaDonHang }, new { @class = "btn btn-info" })
                     @{
                         if (item.TinhTrangGiaoHang == null)
                         {
