@@ -2,7 +2,24 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Layout/AdminLayout.cshtml";
+    double tien = ViewBag.tien;
 }
 
-<h2>Index</h2>
+<h1 style="margin: 20px; text-align: center; font-weight: bold; font-size: 50px; color: darkcyan;">Thống kê thu nhập </h1>
+@using (Html.BeginForm("Loc", "ThongKe", new { BatDau = "BatDau", KetThuc = "KetThuc" }, FormMethod.Post))
+{
+    <h2>Từ Ngày: </h2>
+
+    <input id="NgayDat" name="BatDau" type="date" class="form-control" />
+
+    <h2>Đến ngày: </h2>
+    <input id="NgayDat1" name="KetThuc" type="date" class="form-control" />
+
+
+    <input type="submit"  value="Lọc"  />
+}
+
+<h1 style="font-weight:bold;"> Tổng thu:<span style="color:green;"> @string.Format("{0:0,0}", tien) VND</span> </h1>
+
+
 

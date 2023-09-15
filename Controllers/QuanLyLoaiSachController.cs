@@ -29,7 +29,7 @@ namespace Do_An.Controllers
            
         }
 
-        // GET: QuanLyLoaiSach/Details/5
+      
         public ActionResult Details(int? page,int maChuDe)
         {   
             int pageSize = 12;
@@ -38,7 +38,6 @@ namespace Do_An.Controllers
 
         }
 
-    
         public ActionResult Create()
         {
             
