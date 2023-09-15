@@ -14,7 +14,7 @@ namespace Do_An.Controllers
         public ActionResult ChuDePartial()
         {
 
-            return PartialView(db.ChuDes.Take(7).ToList());
+            return PartialView(db.ChuDes.Take(16).ToList());
         }
         public ViewResult SachTheoChuDe(int MaChuDe = 0)
         {

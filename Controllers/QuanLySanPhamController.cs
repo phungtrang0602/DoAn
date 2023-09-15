@@ -83,7 +83,6 @@ namespace Do_An.Controllers
             return View(sach);
         }
        
-        
 
        [HttpPost]
         public ActionResult ChinhSua(Sach sach)
@@ -113,7 +112,7 @@ namespace Do_An.Controllers
                 db.Saches.Remove(sach);
                 db.SaveChanges();
             }
-
+           
             return View(sach);
         }
 

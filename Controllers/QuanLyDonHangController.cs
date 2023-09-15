@@ -79,8 +79,8 @@ namespace Do_An.Controllers
                 db.SaveChanges();
             }
 
-            return View(donhang);
-            
+            return RedirectToAction("Index");
+
         }
 
         [HttpPost]

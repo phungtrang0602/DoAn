@@ -4,7 +4,10 @@
 
 @foreach (var item in Model)
 {
-    <a href="@Url.Action("SachTheoChuDe",new { @MaChuDe = item.MaChuDe})" class="btn btn-info">@item.TenChuDe</a>
+    if (item.MaChuDe != 1)
+    {
+        <a href="@Url.Action("SachTheoChuDe", new { @MaChuDe = item.MaChuDe })" class="btn btn-info">@item.TenChuDe</a>
+    }
 }
 
 <a href="@Url.Action("DanhMucChuDe")" class="btn btn-info">Chủ đề khác ...</a>

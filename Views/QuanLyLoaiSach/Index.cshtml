@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Do_An.Models.ChuDe>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+
+<h1 style="margin: 20px; text-align: center; font-weight: bold; font-size: 50px; color: darkcyan;">Quản lý Chủ Đề </h1>
+
+<p>
+    @Html.ActionLink("Tạo Mới", "Create", new { }, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mã Chủ Đề
+        </th>
+        <th>
+            Tên Chủ Đề
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaChuDe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenChuDe)
+            </td>
+
+
+            <td>
+
+                @{
+                    @Html.ActionLink("Edit", "Edit", new { @id = item.MaChuDe }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Details", "Details", new { @maChuDe = item.MaChuDe }, new { @class = "btn btn-info" })
+                    if (item.MaChuDe != 24)
+                    {
+
+                        @Html.ActionLink("Delete", "Delete", new { @id = item.MaChuDe }, new { @class = "btn btn-danger", onclick = "return confirm('Bạn có chắc muốn xóa chủ đề này?');" })
+
+                    }
+
+                    
+                }
+
+
+            </td>
+        </tr>
+    }
+
+</table>

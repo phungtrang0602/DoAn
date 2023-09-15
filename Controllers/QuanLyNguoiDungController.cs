@@ -36,7 +36,7 @@ namespace Do_An.Controllers
             return View();
         }
 
-        // POST: QuanLyNguoiDung/Create
+      
         [HttpPost]
         public ActionResult Create(KhachHang khachHang)
         {
